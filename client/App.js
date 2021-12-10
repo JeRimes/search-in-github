@@ -9,12 +9,6 @@ export default function App() {
   const [userInfo, onChangeuserInfo] = React.useState([]);
   const fetchUser = async (username) => {
     const { API_URL } = process.env;
-    // console.log(API_URL)
-    // const response = await fetch(`${API_URL}${username}`, {
-    //   headers: {
-    //     Authorization: "token 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"
-    //   }
-    // });
     // const response = await fetch(`${API_URL}${username}`);
     const response = await fetch(`http://localhost:4242/api/users/` + username);
 
@@ -22,7 +16,6 @@ export default function App() {
     if (data) {
       onChangeData(data.userAdded)
     }
-    //console.log(data);
     //data && onChangeData(data)
   }
 
@@ -50,7 +43,6 @@ export default function App() {
           <Text style={styles.FontTextColor}>{children}</Text>
         </Pressable>
       )
-      // <Button title={children} onPress={handlePress} style={styles.buttonPrimary} />;
     }
     return null;
   };
@@ -69,14 +61,6 @@ export default function App() {
         onChangeText={onChangeText}
         value={text}
       />
-      {/* <Button
-        title="Rechercher"
-        style={styles.button}
-        onPress={async () => {
-          fetchUser(text);
-        }
-      }
-      /> */}
       <Pressable
         style={styles.button}
         onPress={
